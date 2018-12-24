@@ -13,6 +13,7 @@ const app = express();
 
 // Replace with your mongoLab URI
 const MONGO_URI = 'mongodb://localhost:27017/graphql-auth';
+const secret = '7x8nc6ky9l849ml4';
 
 // Mongoose's built in promise library is deprecated, replace it with ES2015 Promise
 mongoose.Promise = global.Promise;
@@ -33,7 +34,7 @@ app.use(
   session({
     resave: true,
     saveUninitialized: true,
-    secret: 'aaabbbccc',
+    secret,
     store: new MongoStore({
       url: MONGO_URI,
       autoReconnect: true
